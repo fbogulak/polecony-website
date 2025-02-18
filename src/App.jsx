@@ -5,11 +5,13 @@ import Home from './pages/Home'
 import Installation from './pages/Installation'
 import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
+import { ScrollToTop } from './components/ScrollToTop'
 import styled from 'styled-components'
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Main>
         <Routes>
