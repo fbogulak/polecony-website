@@ -1,75 +1,132 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FiShield, FiZap, FiLock, FiUsers, FiUploadCloud, FiShare2 } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
+import { FiShield, FiZap, FiLock, FiDownload, FiCheck, FiAward, FiServer, FiUsers, FiGlobe } from 'react-icons/fi'
 
 const Home = () => {
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <>
-      <Hero>
+    <Container>
+      {/* Hero Section */}
+      <Hero id="hero">
         <HeroContent>
           <HeroText>
-            <h1>Secure File Sharing Made Simple</h1>
-            <p>Professional-grade security for your business communications</p>
-            <CtaButton>Get Started</CtaButton>
+            <h1>Secure File Sharing for Modern Business</h1>
+            <p>Share sensitive documents with confidence using military-grade encryption</p>
+            <CTAButton to="/installation">
+              <FiDownload /> Get Started Free
+            </CTAButton>
+            <TrustBadges>
+              <Badge><FiCheck /> End-to-End Encrypted</Badge>
+              <Badge><FiCheck /> GDPR Compliant</Badge>
+              <Badge><FiCheck /> Zero-Knowledge</Badge>
+            </TrustBadges>
           </HeroText>
-          <HeroVisual>
-            <IconWrapper>
-              <FiUploadCloud />
-              <AnimatedLine />
-              <FiLock />
-              <AnimatedLine />
-              <FiShare2 />
-            </IconWrapper>
-          </HeroVisual>
+          <HeroImage>
+            <SecurityIcon><FiShield /></SecurityIcon>
+          </HeroImage>
         </HeroContent>
       </Hero>
 
-      <Benefits>
-        <h2>Why Choose Polecony?</h2>
+      {/* Benefits Section */}
+      <Section id="benefits">
+        <SectionTitle>Why Choose Polecony?</SectionTitle>
         <BenefitsGrid>
           <BenefitCard>
-            <FiShield />
-            <h3>End-to-End Encryption</h3>
-            <p>Your files are encrypted before they leave your device</p>
+            <IconWrapper><FiLock /></IconWrapper>
+            <h3>Maximum Security</h3>
+            <p>Your files are protected with military-grade encryption before they leave your device.</p>
           </BenefitCard>
           <BenefitCard>
-            <FiZap />
+            <IconWrapper><FiZap /></IconWrapper>
             <h3>Lightning Fast</h3>
-            <p>Optimized for speed without compromising security</p>
+            <p>Transfer files of any size at maximum speed with our optimized protocol.</p>
           </BenefitCard>
           <BenefitCard>
-            <FiLock />
-            <h3>Privacy First</h3>
-            <p>No tracking, no analytics, just secure file sharing</p>
-          </BenefitCard>
-          <BenefitCard>
-            <FiUsers />
+            <IconWrapper><FiUsers /></IconWrapper>
             <h3>Team Ready</h3>
-            <p>Perfect for teams of any size</p>
+            <p>Collaborate securely with your team using advanced sharing controls.</p>
           </BenefitCard>
         </BenefitsGrid>
-      </Benefits>
-    </>
+      </Section>
+
+      {/* Features Section */}
+      <Section id="features" $alternate>
+        <SectionTitle>Powerful Features</SectionTitle>
+        <FeaturesGrid>
+          <FeatureCard>
+            <FeatureIcon><FiServer /></FeatureIcon>
+            <div>
+              <h3>Zero-Knowledge Storage</h3>
+              <p>Your files are encrypted before upload. We can't access your data - ever.</p>
+            </div>
+          </FeatureCard>
+          <FeatureCard>
+            <FeatureIcon><FiGlobe /></FeatureIcon>
+            <div>
+              <h3>Cross-Platform</h3>
+              <p>Available on Windows, macOS, Linux, iOS, and Android.</p>
+            </div>
+          </FeatureCard>
+          <FeatureCard>
+            <FeatureIcon><FiAward /></FeatureIcon>
+            <div>
+              <h3>Enterprise Ready</h3>
+              <p>Advanced features for team collaboration and administration.</p>
+            </div>
+          </FeatureCard>
+        </FeaturesGrid>
+      </Section>
+
+      {/* FAQ Section */}
+      <Section id="faq">
+        <SectionTitle>Frequently Asked Questions</SectionTitle>
+        <FAQGrid>
+          <FAQItem>
+            <h3>How secure is Polecony?</h3>
+            <p>Polecony uses military-grade AES-256 encryption and zero-knowledge architecture. Your files are encrypted before they leave your device.</p>
+          </FAQItem>
+          <FAQItem>
+            <h3>What's the maximum file size?</h3>
+            <p>There is no file size limit. You can transfer files of any size with maximum efficiency.</p>
+          </FAQItem>
+          <FAQItem>
+            <h3>Is Polecony GDPR compliant?</h3>
+            <p>Yes, Polecony is fully GDPR compliant and follows strict data protection guidelines.</p>
+          </FAQItem>
+          <FAQItem>
+            <h3>How much does it cost?</h3>
+            <p>Polecony offers flexible pricing plans starting with a free tier. Enterprise plans are available for larger teams.</p>
+          </FAQItem>
+        </FAQGrid>
+      </Section>
+
+      {/* Final CTA */}
+      <CTASection>
+        <h2>Ready to secure your files?</h2>
+        <p>Join thousands of professionals who trust Polecony</p>
+        <CTAButton to="/installation">
+          <FiDownload /> Start Secure Sharing
+        </CTAButton>
+      </CTASection>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  overflow: hidden;
+`
 
 const Hero = styled.section`
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: white;
-  padding: 6rem 1rem;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='rgba(255,255,255,0.05)' fill-rule='evenodd'/%3E%3C/svg%3E");
-    opacity: 0.5;
-  }
+  padding: 8rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 `
 
 const HeroContent = styled.div`
@@ -88,66 +145,47 @@ const HeroContent = styled.div`
 
 const HeroText = styled.div`
   h1 {
+    font-size: 4rem;
+    line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: white;
   }
 
   p {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-    color: var(--accent);
+    opacity: 0.9;
   }
 `
 
-const HeroVisual = styled.div`
+const HeroImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 300px;
 
   @media (max-width: 968px) {
     display: none;
   }
 `
 
-const IconWrapper = styled.div`
-  position: relative;
-  display: flex;
+const SecurityIcon = styled.div`
+  font-size: 15rem;
+  color: rgba(255, 255, 255, 0.2);
+  animation: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+`
+
+const CTAButton = styled(Link)`
+  display: inline-flex;
   align-items: center;
-  gap: 2rem;
-
-  svg {
-    font-size: 4rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-`
-
-const AnimatedLine = styled.div`
-  height: 2px;
-  width: 60px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.2) 100%);
-  animation: pulse 2s infinite;
-
-  @keyframes pulse {
-    0% {
-      opacity: 0.4;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.4;
-    }
-  }
-`
-
-const CtaButton = styled.button`
-  background: var(--white);
+  gap: 0.75rem;
+  background: white;
   color: var(--primary);
-  padding: 1rem 2rem;
+  padding: 1.25rem 2.5rem;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1.125rem;
@@ -160,29 +198,80 @@ const CtaButton = styled.button`
   }
 `
 
-const Benefits = styled.section`
-  padding: 6rem 1rem;
-  text-align: center;
-  background: var(--white);
+const TrustBadges = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 
-  h2 {
-    margin-bottom: 3rem;
-    color: var(--text);
+  @media (max-width: 968px) {
+    justify-content: center;
   }
+`
+
+const Badge = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+`
+
+const Section = styled.section`
+  padding: 8rem 2rem;
+  background: ${props => props.$alternate ? 'var(--gray-50)' : 'white'};
+`
+
+const SectionTitle = styled.h2`
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+  color: var(--text);
 `
 
 const BenefitsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 `
 
 const BenefitCard = styled.div`
+  text-align: center;
   padding: 2rem;
-  background: var(--gray-50);
+
+  h3 {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+  }
+
+  p {
+    color: var(--text-light);
+  }
+`
+
+const IconWrapper = styled.div`
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+`
+
+const FeaturesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+`
+
+const FeatureCard = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: white;
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s;
@@ -191,19 +280,64 @@ const BenefitCard = styled.div`
     transform: translateY(-4px);
   }
 
-  svg {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-  }
-
   h3 {
-    margin-bottom: 1rem;
-    color: var(--text);
+    margin-bottom: 0.5rem;
   }
 
   p {
     color: var(--text-light);
+  }
+`
+
+const FeatureIcon = styled.div`
+  font-size: 2rem;
+  color: var(--primary);
+  flex-shrink: 0;
+`
+
+const FAQGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+`
+
+const FAQItem = styled.div`
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+
+  p {
+    color: var(--text-light);
+  }
+`
+
+const CTASection = styled.section`
+  text-align: center;
+  padding: 6rem 2rem;
+  background: var(--primary);
+  color: white;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
   }
 `
 
