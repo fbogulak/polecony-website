@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { FiMenu, FiX } from 'react-icons/fi'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.svg'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
