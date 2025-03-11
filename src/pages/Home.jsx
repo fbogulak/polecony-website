@@ -451,15 +451,15 @@ function Home() {
       <Hero id="hero">
         <HeroContent>
           <HeroText>
-            <GradientText>Bezpieczne Udostępnianie Plików</GradientText>
-            <h1>Chroń Dane Swojej Firmy</h1>
-            <p>Udostępniaj poufne dokumenty z pewnością dzięki szyfrowaniu klasy wojskowej</p>
+            <GradientText>Bezpieczne przesyłanie dokumentów</GradientText>
+            <h1>Poufność w standardzie</h1>
+            <p>Przesyłanie dokumentów z gwarancją poufności dzięki szyfrowaniu end-to-end</p>
             <CTAGroup>
               <PrimaryCTA onClick={handleStartSharing}>
-                <FiDownload /> Rozpocznij Za Darmo
+                <FiDownload /> Chcę odbierać
               </PrimaryCTA>
               <SecondaryCTA to="/contact">
-                Kontakt z Działem Sprzedaży
+                Chcę wysyłać
               </SecondaryCTA>
             </CTAGroup>
             <TrustBadges>
@@ -468,7 +468,6 @@ function Home() {
               <Badge $variant="success"><FiCheck /> Zgodny z RODO</Badge>
             </TrustBadges>
           </HeroText>
-          <ImagePlaceholder>Miejsce na grafikę</ImagePlaceholder>
         </HeroContent>
         <HeroBackground />
       </Hero>

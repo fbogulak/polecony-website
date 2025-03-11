@@ -35,7 +35,7 @@ const Footer = () => {
             <span>Polecony</span>
           </FooterLogo>
           <FooterText>
-            Bezpieczne udostępnianie plików dla firm i profesjonalistów. Chroń swoje dane dzięki szyfrowaniu klasy wojskowej.
+            Bezpieczne przesyłanie dokumentów dla firm i osób prywatnych. Chroń swoje dane dzięki szyfrowaniu end-to-end.
           </FooterText>
         </FooterSection>
         
@@ -43,7 +43,7 @@ const Footer = () => {
           <FooterTitle>Nawigacja</FooterTitle>
           <FooterLinks>
             <FooterNavItem onClick={() => handleNavigation('/')}>
-              Główna
+              Start
             </FooterNavItem>
             <FooterNavItem onClick={() => handleNavigation('/installation')}>
               Instalacja
@@ -94,7 +94,7 @@ const Footer = () => {
       </FooterContent>
       
       <FooterBottom>
-        <Copyright>© {currentYear} Polecony. Wszelkie prawa zastrzeżone.</Copyright>
+        <Copyright>© {currentYear} B3 Sp. z o.o. Wszelkie prawa zastrzeżone.</Copyright>
       </FooterBottom>
     </FooterContainer>
   )

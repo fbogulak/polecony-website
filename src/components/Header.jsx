@@ -71,7 +71,7 @@ const Header = () => {
           aria-hidden={!isOpen}
           role="navigation"
         >
-          <NavLink to="/" onClick={handleNavLinkClick}>Główna</NavLink>
+          <NavLink to="/" onClick={handleNavLinkClick}>Start</NavLink>
           <NavLink to="/installation" onClick={handleNavLinkClick}>Instalacja</NavLink>
           <NavLink to="/contact" onClick={handleNavLinkClick}>Kontakt</NavLink>
           <NavLink to="/privacy" onClick={handleNavLinkClick}>Polityka Prywatności</NavLink>
