@@ -40,6 +40,7 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     color: var(--text);
     background: var(--background);
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -51,16 +52,28 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 4rem;
     font-weight: 700;
     letter-spacing: -0.02em;
+    
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
   }
 
   h2 {
     font-size: 2.5rem;
     font-weight: 600;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
   }
 
   h3 {
     font-size: 1.75rem;
     font-weight: 600;
+    
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 
   img {
@@ -78,5 +91,16 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
     background: none;
     font-family: inherit;
+  }
+  
+  /* Improve touch targets for mobile */
+  @media (max-width: 768px) {
+    button, 
+    a, 
+    input[type="button"], 
+    input[type="submit"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
   }
 `

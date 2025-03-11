@@ -5,29 +5,29 @@ import { FiMail, FiClock } from 'react-icons/fi'
 const Contact = () => {
   return (
     <Container>
-      <h1>Contact Us</h1>
+      <h1>Kontakt</h1>
 
       <Content>
         <ContactInfo>
           <InfoCard>
             <FiMail />
-            <h3>Email Support</h3>
+            <h3>Wsparcie Email</h3>
             <p>support@polecony.com.pl</p>
           </InfoCard>
 
           <InfoCard>
             <FiClock />
-            <h3>Business Hours</h3>
-            <p>Monday - Friday</p>
+            <h3>Godziny Pracy</h3>
+            <p>Poniedziałek - Piątek</p>
             <p>9:00 - 17:00 CET</p>
           </InfoCard>
         </ContactInfo>
 
         <ContactForm>
-          <h2>Send us a message</h2>
+          <h2>Wyślij nam wiadomość</h2>
           <Form>
             <FormGroup>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Imię i nazwisko</label>
               <input type="text" id="name" required />
             </FormGroup>
 
@@ -37,16 +37,16 @@ const Contact = () => {
             </FormGroup>
 
             <FormGroup>
-              <label htmlFor="subject">Subject</label>
+              <label htmlFor="subject">Temat</label>
               <input type="text" id="subject" required />
             </FormGroup>
 
             <FormGroup>
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">Wiadomość</label>
               <textarea id="message" rows="5" required></textarea>
             </FormGroup>
 
-            <SubmitButton type="submit">Send Message</SubmitButton>
+            <SubmitButton type="submit">Wyślij Wiadomość</SubmitButton>
           </Form>
         </ContactForm>
       </Content>

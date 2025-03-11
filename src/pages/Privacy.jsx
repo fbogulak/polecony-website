@@ -4,58 +4,58 @@ import styled from 'styled-components'
 const Privacy = () => {
   return (
     <Container>
-      <h1>Privacy Policy</h1>
+      <h1>Polityka Prywatności</h1>
       
       <Content>
         <Section>
-          <h2>Introduction</h2>
-          <p>At Polecony, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our secure file-sharing service.</p>
+          <h2>Wprowadzenie</h2>
+          <p>W Polecony traktujemy Twoją prywatność poważnie. Ta Polityka Prywatności wyjaśnia, w jaki sposób gromadzimy, wykorzystujemy i chronimy Twoje dane osobowe, gdy korzystasz z naszej usługi bezpiecznego udostępniania plików.</p>
         </Section>
 
         <Section>
-          <h2>Information Collection</h2>
-          <p>We collect only the minimum information necessary to provide our services:</p>
+          <h2>Gromadzenie Informacji</h2>
+          <p>Gromadzimy tylko minimalne informacje niezbędne do świadczenia naszych usług:</p>
           <ul>
-            <li>Email address for account creation</li>
-            <li>Basic usage data for service operation</li>
-            <li>Technical information for security purposes</li>
+            <li>Adres e-mail do utworzenia konta</li>
+            <li>Podstawowe dane użytkowania do obsługi usługi</li>
+            <li>Informacje techniczne do celów bezpieczeństwa</li>
           </ul>
         </Section>
 
         <Section>
-          <h2>Data Protection</h2>
-          <p>Your files are protected using:</p>
+          <h2>Ochrona Danych</h2>
+          <p>Twoje pliki są chronione za pomocą:</p>
           <ul>
-            <li>End-to-end encryption</li>
-            <li>Secure transmission protocols</li>
-            <li>Regular security audits</li>
+            <li>Szyfrowania end-to-end</li>
+            <li>Bezpiecznych protokołów transmisji</li>
+            <li>Regularnych audytów bezpieczeństwa</li>
           </ul>
         </Section>
 
         <Section>
-          <h2>Data Usage</h2>
-          <p>We use your information solely for:</p>
+          <h2>Wykorzystanie Danych</h2>
+          <p>Wykorzystujemy Twoje informacje wyłącznie do:</p>
           <ul>
-            <li>Providing our file-sharing service</li>
-            <li>Maintaining service security</li>
-            <li>Improving user experience</li>
+            <li>Świadczenia usługi udostępniania plików</li>
+            <li>Utrzymania bezpieczeństwa usługi</li>
+            <li>Poprawy doświadczenia użytkownika</li>
           </ul>
         </Section>
 
         <Section>
-          <h2>Your Rights</h2>
-          <p>You have the right to:</p>
+          <h2>Twoje Prawa</h2>
+          <p>Masz prawo do:</p>
           <ul>
-            <li>Access your personal data</li>
-            <li>Request data deletion</li>
-            <li>Export your data</li>
-            <li>Modify your information</li>
+            <li>Dostępu do swoich danych osobowych</li>
+            <li>Żądania usunięcia danych</li>
+            <li>Eksportu swoich danych</li>
+            <li>Modyfikacji swoich informacji</li>
           </ul>
         </Section>
 
         <Section>
-          <h2>Contact Us</h2>
-          <p>For privacy-related inquiries, please contact our Data Protection Officer at privacy@polecony.com.pl</p>
+          <h2>Kontakt</h2>
+          <p>W sprawach związanych z prywatnością prosimy o kontakt z naszym Inspektorem Ochrony Danych pod adresem privacy@polecony.com.pl</p>
         </Section>
       </Content>
     </Container>

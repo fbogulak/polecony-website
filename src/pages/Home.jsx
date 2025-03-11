@@ -185,25 +185,18 @@ const Badge = styled.div`
   }
 `
 
-const GradientOrb = styled.div`
-  position: relative;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 30%,
-    transparent 70%
-  );
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
-
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-  }
-
+const ImagePlaceholder = styled.div`
+  width: 100%;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+  
   @media (max-width: 968px) {
     display: none;
   }
@@ -301,20 +294,29 @@ const FeatureCard = styled.div`
   background: var(--white);
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  h3 {
-    margin-bottom: 0.5rem;
-    color: var(--text);
-  }
-
-  p {
-    color: var(--text-light);
+  
+  /* Fixed content layout to prevent overflow */
+  & > div {
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+    
+    p {
+      margin: 0;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
   }
 `
 
@@ -427,20 +429,20 @@ function Home() {
 
   const faqs = [
     {
-      question: "How secure is Polecony?",
-      answer: "Polecony uses military-grade AES-256 encryption and zero-knowledge architecture. Your files are encrypted before they leave your device, ensuring maximum security and privacy."
+      question: "Jak bezpieczny jest Polecony?",
+      answer: "Polecony wykorzystuje szyfrowanie klasy wojskowej AES-256 i architekturę zero-knowledge. Twoje pliki są szyfrowane zanim opuszczą Twoje urządzenie, zapewniając maksymalne bezpieczeństwo i prywatność."
     },
     {
-      question: "What's the maximum file size?",
-      answer: "There is no file size limit. You can transfer files of any size with maximum efficiency thanks to our optimized transfer protocol."
+      question: "Jaki jest maksymalny rozmiar pliku?",
+      answer: "Nie ma limitu rozmiaru pliku. Możesz przesyłać pliki o dowolnym rozmiarze z maksymalną wydajnością dzięki naszemu zoptymalizowanemu protokołowi transferu."
     },
     {
-      question: "Is Polecony GDPR compliant?",
-      answer: "Yes, Polecony is fully GDPR compliant and follows strict data protection guidelines. We regularly audit our systems to ensure compliance with the latest privacy regulations."
+      question: "Czy Polecony jest zgodny z RODO?",
+      answer: "Tak, Polecony jest w pełni zgodny z RODO i przestrzega surowych wytycznych dotyczących ochrony danych. Regularnie audytujemy nasze systemy, aby zapewnić zgodność z najnowszymi przepisami dotyczącymi prywatności."
     },
     {
-      question: "How much does it cost?",
-      answer: "Polecony offers flexible pricing plans starting with a free tier. Enterprise plans are available for larger teams with custom requirements."
+      question: "Ile to kosztuje?",
+      answer: "Polecony oferuje elastyczne plany cenowe, zaczynając od darmowego pakietu. Plany dla firm są dostępne dla większych zespołów z niestandardowymi wymaganiami."
     }
   ]
 
@@ -449,24 +451,24 @@ function Home() {
       <Hero id="hero">
         <HeroContent>
           <HeroText>
-            <GradientText>Secure File Sharing</GradientText>
-            <h1>Protect Your Business Data</h1>
-            <p>Share sensitive documents with confidence using military-grade encryption</p>
+            <GradientText>Bezpieczne Udostępnianie Plików</GradientText>
+            <h1>Chroń Dane Swojej Firmy</h1>
+            <p>Udostępniaj poufne dokumenty z pewnością dzięki szyfrowaniu klasy wojskowej</p>
             <CTAGroup>
               <PrimaryCTA onClick={handleStartSharing}>
-                <FiDownload /> Get Started Free
+                <FiDownload /> Rozpocznij Za Darmo
               </PrimaryCTA>
               <SecondaryCTA to="/contact">
-                Contact Sales
+                Kontakt z Działem Sprzedaży
               </SecondaryCTA>
             </CTAGroup>
             <TrustBadges>
-              <Badge $variant="primary"><FiKey /> End-to-End Encrypted</Badge>
+              <Badge $variant="primary"><FiKey /> Szyfrowanie End-to-End</Badge>
               <Badge $variant="secondary"><FiShieldOff /> Zero-Knowledge</Badge>
-              <Badge $variant="success"><FiCheck /> GDPR Compliant</Badge>
+              <Badge $variant="success"><FiCheck /> Zgodny z RODO</Badge>
             </TrustBadges>
           </HeroText>
-          <GradientOrb />
+          <ImagePlaceholder>Miejsce na grafikę</ImagePlaceholder>
         </HeroContent>
         <HeroBackground />
       </Hero>
@@ -474,24 +476,24 @@ function Home() {
       {/* Benefits Section */}
       <Section id="benefits">
         <SectionTitle>
-          <span>Why Choose Polecony?</span>
-          <SubTitle>Trusted by thousands of businesses worldwide</SubTitle>
+          <span>Dlaczego Warto Wybrać Polecony?</span>
+          <SubTitle>Zaufały nam tysiące firm na całym świecie</SubTitle>
         </SectionTitle>
         <BenefitsGrid>
           <BenefitCard>
             <IconWrapper $variant="primary"><FiLock /></IconWrapper>
-            <h3>Maximum Security</h3>
-            <p>Your files are protected with military-grade encryption before they leave your device.</p>
+            <h3>Maksymalne Bezpieczeństwo</h3>
+            <p>Twoje pliki są chronione szyfrowaniem klasy wojskowej zanim opuszczą Twoje urządzenie.</p>
           </BenefitCard>
           <BenefitCard>
             <IconWrapper $variant="secondary"><FiZap /></IconWrapper>
-            <h3>Lightning Fast</h3>
-            <p>Transfer files of any size at maximum speed with our optimized protocol.</p>
+            <h3>Błyskawiczna Szybkość</h3>
+            <p>Przesyłaj pliki o dowolnym rozmiarze z maksymalną prędkością dzięki naszemu zoptymalizowanemu protokołowi.</p>
           </BenefitCard>
           <BenefitCard>
             <IconWrapper $variant="success"><FiUsers /></IconWrapper>
-            <h3>Team Ready</h3>
-            <p>Collaborate securely with your team using advanced sharing controls.</p>
+            <h3>Gotowy dla Zespołów</h3>
+            <p>Współpracuj bezpiecznie ze swoim zespołem dzięki zaawansowanym kontrolom udostępniania.</p>
           </BenefitCard>
         </BenefitsGrid>
       </Section>
@@ -499,29 +501,29 @@ function Home() {
       {/* Features Section */}
       <Section id="features" $alternate>
         <SectionTitle>
-          <span>Powerful Features</span>
-          <SubTitle>Everything you need for secure file sharing</SubTitle>
+          <span>Zaawansowane Funkcje</span>
+          <SubTitle>Wszystko, czego potrzebujesz do bezpiecznego udostępniania plików</SubTitle>
         </SectionTitle>
         <FeaturesGrid>
           <FeatureCard>
             <FeatureIcon $variant="primary"><FiServer /></FeatureIcon>
             <div>
-              <h3>Zero-Knowledge Storage</h3>
-              <p>Your files are encrypted before upload. We can't access your data - ever.</p>
+              <h3>Przechowywanie Zero-Knowledge</h3>
+              <p>Twoje pliki są szyfrowane przed przesłaniem. Nigdy nie mamy dostępu do Twoich danych.</p>
             </div>
           </FeatureCard>
           <FeatureCard>
             <FeatureIcon $variant="secondary"><FiGlobe /></FeatureIcon>
             <div>
-              <h3>Cross-Platform</h3>
-              <p>Available on Windows, macOS, Linux, iOS, and Android.</p>
+              <h3>Wieloplatformowość</h3>
+              <p>Dostępny na Windows, macOS, Linux, iOS i Android.</p>
             </div>
           </FeatureCard>
           <FeatureCard>
             <FeatureIcon $variant="success"><FiAward /></FeatureIcon>
             <div>
-              <h3>Enterprise Ready</h3>
-              <p>Advanced features for team collaboration and administration.</p>
+              <h3>Gotowy dla Firm</h3>
+              <p>Zaawansowane funkcje dla współpracy zespołowej i administracji.</p>
             </div>
           </FeatureCard>
         </FeaturesGrid>
@@ -530,8 +532,8 @@ function Home() {
       {/* FAQ Section */}
       <Section id="faq">
         <SectionTitle>
-          <span>Common Questions</span>
-          <SubTitle>Everything you need to know about Polecony</SubTitle>
+          <span>Często Zadawane Pytania</span>
+          <SubTitle>Wszystko, co musisz wiedzieć o Polecony</SubTitle>
         </SectionTitle>
         <FAQContainer>
           {faqs.map((faq, index) => (
@@ -552,11 +554,11 @@ function Home() {
 
       {/* Final CTA */}
       <CTASection>
-        <GradientText>Get Started Today</GradientText>
-        <h2>Ready to secure your files?</h2>
-        <p>Join thousands of professionals who trust Polecony</p>
+        <GradientText>Rozpocznij Już Dziś</GradientText>
+        <h2>Gotowy zabezpieczyć swoje pliki?</h2>
+        <p>Dołącz do tysięcy profesjonalistów, którzy ufają Polecony</p>
         <PrimaryCTA onClick={handleStartSharing}>
-          <FiDownload /> Start Secure Sharing
+          <FiDownload /> Rozpocznij Bezpieczne Udostępnianie
         </PrimaryCTA>
       </CTASection>
     </Container>
