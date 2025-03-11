@@ -14,6 +14,7 @@ import {
   FiKey,
   FiShieldOff
 } from 'react-icons/fi'
+import heroImage from '../assets/heroImage.jpg'
 
 // Styled components
 const Container = styled.div`
@@ -184,35 +185,21 @@ const Badge = styled.div`
     font-size: 1.25rem;
   }
 `
-
-const ImagePlaceholder = styled.div`
-  width: 100%;
-  height: 400px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  border: 2px dashed rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.25rem;
-  
-  @media (max-width: 968px) {
-    display: none;
-  }
-`
-
 const HeroBackground = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(76, 177, 255, 0.4) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(7, 78, 140, 0.4) 0%, transparent 40%);
-  z-index: 1;
-`
+  background-image: 
+  radial-gradient(circle at 20% 20%, rgba(7, 78, 140, 1) 0%, transparent 90%),
+    radial-gradient(circle at 80% 80%, rgba(76, 177, 255, 0.8) 0%, transparent 90%),
+    url(${heroImage});
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  z-index: 1; 
+`;
 
 const Section = styled.section`
   padding: 8rem 2rem;
